@@ -19,6 +19,16 @@ public class Ingredient {
     @OneToOne(fetch = FetchType.EAGER)//OneToOne is eager, but is possible to set the FetchType. So when I call uom, hibernate also takes ingredient related
     private UnitOfMeasure uom;
 
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+    }
+
+    public Ingredient() {
+
+    }
+
     public Long getId() {
         return id;
     }
