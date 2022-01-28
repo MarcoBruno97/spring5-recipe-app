@@ -3,12 +3,14 @@ package guru.springframework.recipe.service;
 import guru.springframework.recipe.commands.RecipeCommand;
 import guru.springframework.recipe.converters.RecipeCommandToRecipe;
 import guru.springframework.recipe.converters.RecipeToRecipeCommand;
+import guru.springframework.recipe.domain.Ingredient;
 import guru.springframework.recipe.domain.Recipe;
 import guru.springframework.recipe.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -43,6 +45,13 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     @Transactional
+    public RecipeCommand findCommandById(Long l) {
+        return recipeToRecipeCommand.convert(getRecipeById(l));
+    }
+
+
+    @Override
+    @Transactional
     public RecipeCommand saveRecipeCommand(RecipeCommand command) {
         Recipe detachedRecipe = recipeCommandToRecipe.convert(command);
 
@@ -50,4 +59,12 @@ public class RecipeServiceImpl implements RecipeService {
         System.out.println("Saved RecipeId:" + savedRecipe.getId());
         return recipeToRecipeCommand.convert(savedRecipe);
     }
+
+    @Override
+    @Transactional
+    public void deleteById(Long id){
+        recipeRepository.deleteById(id);
+    }
+
+
 }

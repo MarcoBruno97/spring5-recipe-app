@@ -6,7 +6,8 @@ public class IngredientCommand {
     private Long id;
     private String description;
     private BigDecimal amount;
-    private UnitOfMeasureCommand unitOfMeasure;
+    private UnitOfMeasureCommand uom;
+    private Long recipeId;
 
     public IngredientCommand() {
     }
@@ -35,11 +36,19 @@ public class IngredientCommand {
         this.amount = amount;
     }
 
-    public UnitOfMeasureCommand getUnitOfMeasure() {
-        return unitOfMeasure;
+    public UnitOfMeasureCommand getUom() {
+        return uom;
     }
 
-    public void setUnitOfMeasure(UnitOfMeasureCommand unitOfMeasure) {
-        this.unitOfMeasure = unitOfMeasure;
+    public void setUom(UnitOfMeasureCommand uom) {
+        this.uom = uom;
+    }
+
+    public Long getRecipeId() {
+        return recipeId;
+    }
+
+    public void setRecipeId(Long recipeId) {
+        this.recipeId = recipeId;
     }
 }

@@ -6,6 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class RecipeCommand {
+    //Command Object is a JavaBean which will be populated with the data
+    // from your forms. When the form is submitted, all the individual
+    // attributes are mapped/bound to this object.
     private Long id;
     private String description;
     private Integer prepTime;
