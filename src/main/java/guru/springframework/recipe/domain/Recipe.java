@@ -131,13 +131,15 @@ public class Recipe {
     }
 
     public void setNotes(Notes notes) {
-        this.notes = notes;
-        notes.setRecipe(this);
+        if (notes != null) {
+            this.notes = notes;
+            notes.setRecipe(this);
+        }
     }
 
     public Recipe addIngredient(Ingredient ingredient){
         ingredient.setRecipe(this);
-        this.getIngredients().add(ingredient);
+        this.ingredients.add(ingredient);
         return this;
     }
 
