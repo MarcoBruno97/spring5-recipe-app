@@ -151,7 +151,7 @@ public class RecipeBootstrap  implements ApplicationListener<ContextRefreshedEve
     private UnitOfMeasure getUnitOfMeasure(String description) {
 
         return unitOfMeasureRepository.findByDescription(description).orElseThrow(()->
-                new RuntimeException("Unit of measure " + description + " not found)"));
+                new RuntimeException("Unit of measure " + description + " not found"));
 
     }
 
